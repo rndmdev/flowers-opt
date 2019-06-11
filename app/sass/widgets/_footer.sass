@@ -1,0 +1,65 @@
+.footer
+	padding: 55px 0 60px
+	background-color: #404040
+
+	.footer-bottom
+
+		.footer-raw
+			align-items: center
+
+	.footer-raw
+		display: flex
+
+	.footer-col
+		width: calc(25% - 22.5px)
+
+		&:not(:last-child)
+			margin-right: 30px
+
+	.footer-copy
+		color: #fff
+		font-size: 12px
+		font-weight: 300
+		line-height: 18px
+
+	.footer-social,
+	.footer-pays
+		display: flex
+		align-items: center
+
+	.social-icon
+		display: inline-block
+		width: 30px
+		height: 30px
+		background-position: center
+		border-radius: 50%
+		box-shadow: 3.8px 1.1px 10px rgba(0, 0, 0, 0.25)
+
+		&.insta
+			+png(icon-instagram)
+
+		&.fb
+			+png(icon-fb)
+
+		&.vk
+			+png(icon-vk)
+
+		&:not(:last-child)
+			margin-right: 10px
+
+	.pays-icon
+		display: inline-block
+		width: 62px
+		height: 25px
+		border-radius: 10px
+		box-shadow: 3.8px 1.1px 10px rgba(0, 0, 0, 0.25)
+
+		&.visa
+			+png(icon-visa)
+
+		&.mc
+			+png(icon-master)
+
+		&:not(:last-child)
+			margin-right: 2px
+

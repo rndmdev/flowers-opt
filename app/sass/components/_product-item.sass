@@ -1,0 +1,42 @@
+.product-item
+	padding-bottom: 15px
+	display: flex
+	flex-direction: column
+	align-items: center
+
+	.product-item-img
+		width: 100%
+		max-width: 270px
+		min-height: 270px
+		background-color: #f4f5f7
+		position: relative
+		display: flex
+		justify-content: center
+		align-items: center
+		margin-bottom: 15px
+
+	.label
+		padding: 5px 10px 4px
+		position: absolute
+		top: 10px
+		left: 10px
+		color: #fbf3f2
+		font-size: 11px
+		line-height: 16px
+		text-transform: uppercase
+		background-color: #ff3d2a
+		border-radius: 2px
+
+	.product-item-title
+		margin-bottom: 10px
+
+	.product-item-price
+		margin-bottom: 12px
+
+		span
+			font-weight: 500
+			margin: 0 2px
+
+			&:not(:first-child)
+				color: $color-red
+				text-decoration: line-through

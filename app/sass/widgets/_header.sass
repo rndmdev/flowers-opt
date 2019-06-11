@@ -1,0 +1,86 @@
+.header
+	min-height: 299px
+	background-repeat: no-repeat
+	background-position: center calc(100% - 50px)
+	+png(header-bg)
+	border-bottom: 5px solid $color-accent
+
+	.header-box
+		display: flex
+		align-items: flex-end
+
+	.logo,
+	.header-icon
+		flex-shrink: 0
+
+	.logo
+		padding-bottom: 25px
+		margin-right: 75px
+
+	.header-nav
+		min-height: 294px
+		display: flex
+		flex-direction: column
+		justify-content: flex-end
+		align-items: flex-end
+		flex-grow: 1
+
+	.header-info
+		display: flex
+		flex-direction: column
+		justify-content: center
+		align-items: flex-end
+		flex-grow: 1
+
+	.header-title,
+	.header-phone
+		color: $color-black
+		font-size: 25px
+
+	.header-title
+		font-weight: 500
+
+	.header-phone
+		font-weight: 700
+		letter-spacing: .1em
+		text-decoration: none
+
+	.header-messengers
+		font-size: 20px
+		font-weight: 500
+
+		a
+			color: $color-black
+			text-decoration: none
+			padding-left: 5px
+
+	.menu
+		display: flex
+		list-style-type: none
+		padding: 0
+		margin: 0
+
+		li
+
+			&:not(:first-child)
+				padding-left: 34px
+				position: relative
+
+				&::before
+					position: absolute
+					content: ''
+					width: 8px
+					height: 8px
+					top: 50%
+					left: 13px
+					transform: translateY(-50%)
+					background-color: #ffb6ca
+					border-radius: 100%
+
+			a
+				padding: 15px 0
+				color: $color-black
+				font-size: 16px
+				font-weight: 400
+				line-height: 20px
+				text-decoration: none

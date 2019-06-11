@@ -1,0 +1,31 @@
+.instagram
+	padding: 10px 0
+	position: relative
+	background-color: $color-light
+
+	.instagram-title
+		padding: 18px 25px
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate3d(-50%,-50%,0)
+		font-size: 14px
+		line-height: 24px
+		background-color: rgba(#fff, .9)
+		z-index: 2
+
+	.instagram-gallery
+		display: flex
+
+		a
+			display: block
+			width: 100%
+			height: auto
+
+			img
+				width: auto
+				height: auto
+
+			&:not(:last-child)
+				margin-right: 10px
+
