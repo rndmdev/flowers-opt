@@ -1,7 +1,7 @@
 .header
 	min-height: 299px
 	background-repeat: no-repeat
-	background-position: center calc(100% - 50px)
+	background-position: center 9px
 	+png(header-bg)
 	border-bottom: 5px solid $color-accent
 
@@ -14,16 +14,41 @@
 		flex-shrink: 0
 
 	.logo
+		display: block
 		padding-bottom: 25px
 		margin-right: 75px
+		+r(1259)
+			max-width: 150px
+			margin-right: 25px
+
+		&.header-main-logo
+			+r(991)
+				display: none
+
+	.header-icon
+		+r(1259)
+			max-width: 100px
+		+r(1199)
+			display: none
 
 	.header-nav
 		min-height: 294px
 		display: flex
-		flex-direction: column
+		flex-wrap: wrap
 		justify-content: flex-end
 		align-items: flex-end
 		flex-grow: 1
+		+r(991)
+			align-items: flex-start
+
+		.logo
+			display: none
+			+r(991)
+				height: 244px
+				padding: 0
+				display: flex
+				align-items: center
+				flex-shrink: 0
 
 	.header-info
 		display: flex
@@ -31,6 +56,9 @@
 		justify-content: center
 		align-items: flex-end
 		flex-grow: 1
+		+r(991)
+			height: 244px
+			flex-shrink: 0
 
 	.header-title,
 	.header-phone
@@ -54,17 +82,38 @@
 			text-decoration: none
 			padding-left: 5px
 
+	.header-menu
+		+r(991)
+			width: 100%
+
+	.menu-wrap
+		+r(767)
+			display: none
+
+		&.on
+			display: block
+
 	.menu
 		display: flex
 		list-style-type: none
 		padding: 0
 		margin: 0
+		+r(767)
+			flex-direction: column
 
 		li
+			+r(767)
+				border-bottom: 1px solid $color-light
+
+			&:first-child
+				+r(767)
+					border-top: 1px solid $color-light
 
 			&:not(:first-child)
 				padding-left: 34px
 				position: relative
+				+r(767)
+					padding-left: 0
 
 				&::before
 					position: absolute
@@ -76,6 +125,8 @@
 					transform: translateY(-50%)
 					background-color: #ffb6ca
 					border-radius: 100%
+					+r(767)
+						display: none
 
 			a
 				padding: 15px 0
@@ -84,3 +135,56 @@
 				font-weight: 400
 				line-height: 20px
 				text-decoration: none
+
+/* ---- TOGGLE ---- */
+.menu-toggle
+	display: none
+	width: 35px
+	height: 21px
+	padding: 9px 0
+	position: relative
+	cursor: pointer
+	+r(767)
+		display: inline-block
+		margin: 14px 0 10px
+
+	span
+		position: relative
+		display: block
+		width: 100%
+		height: 3px
+		background-color: $color-black
+		transition: all 0.3s
+		backface-visibility: hidden
+		border-radius: 2px
+
+		&:after,
+		&:before
+			content: ''
+			position: absolute
+			left: 0
+			width: 100%
+			height: 3px
+			background-color: $color-black
+			transition: all 0.3s
+			backface-visibility: hidden
+			border-radius: 2px
+
+		&:after
+			top: 9px
+
+		&:before
+			top: -9px
+
+	&.on
+
+		span
+			background-color: transparent
+
+			&:before
+				background-color: $color-black
+				transform: rotate(45deg) translate(5px, 5px)
+
+			&:after
+				background-color: $color-black
+				transform: rotate(-45deg) translate(7px, -8px)

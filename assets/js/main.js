@@ -51,6 +51,15 @@ function instagramSlider() {
     });
 }
 
+function toggleMenu() {
+    var tbtn = jQuery('.menu-toggle');
+    var tmenu = jQuery('.menu-wrap');
+    tbtn.click(function () {
+        jQuery(this).toggleClass("on");
+        tmenu.toggleClass("on");
+    });
+}
+
 
 
 
@@ -125,20 +134,6 @@ function productSlider() {
 }
 
 
-function toggleMenu() {
-    var tbtn = jQuery('.toggle-btn');
-    var tmenu = jQuery('.toggle-menu');
-    var tlink = jQuery('.toggle-menu a');
-    tbtn.click(function () {
-        jQuery(this).toggleClass("on");
-        tmenu.toggleClass("on");
-    });
-    tlink.click(function () {
-        tbtn.removeClass("on");
-        tmenu.removeClass("on");
-    });
-}
-
 
 function smoothscroll() {
     jQuery(document).on('click', '.go_to', function (event) {
@@ -159,6 +154,7 @@ function initEvents() {
         proposalTimer();
         reviewsSlider();
         instagramSlider();
+        toggleMenu();
     });
 
     jQuery(document).mouseup(function (e) {

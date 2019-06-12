@@ -15,9 +15,15 @@
 <header class="header">
 	<div class="container">
 		<div class="header-box">
-			<div class="logo"><img src="<?php echo THEME_IMG; ?>logo.png" alt=""></div>
+
+			<a href="/" class="logo header-main-logo"><img src="<?php echo THEME_IMG; ?>logo.png" alt=""></a>
+
 			<div class="header-icon"><img src="<?php echo THEME_IMG; ?>header-logo.png" alt=""></div>
+
 			<div class="header-nav">
+
+				<a href="/" class="logo"><img src="<?php echo THEME_IMG; ?>logo.png" alt=""></a>
+
 				<div class="header-info">
 					<div class="header-title">ДОСТАВКА БУКЕТОВ</div>
 					<a href="tel:89857626004" class="header-phone">8 (985) 762-60-04</a>
@@ -27,10 +33,15 @@
 						<a href="tel:89167358890" class="phone">8 (916) 735-88-90</a>
 					</div>
 				</div>
+
 				<div class="header-menu">
-					<?php wp_nav_menu( array( 'theme_location' => 'top' ) ); ?>
+					<span class="menu-toggle"><span></span></span>
+					<div class="menu-wrap">
+						<?php wp_nav_menu( array( 'theme_location' => 'top' ) ); ?>
+					</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
 </header>

@@ -1,0 +1,142 @@
+.shop-wrap
+	display: flex
+	flex-wrap: wrap
+	margin-bottom: 100px
+
+	.content-area
+		width: calc(75% - 15px)
+		order: 2
+		flex-shrink: 0
+
+	.sidebar
+		width: calc(25% - 15px)
+		margin-right: 30px
+		order: 1
+		flex-shrink: 0
+
+.woocommerce
+
+	.button
+		margin-top: 10px
+
+	a.button
+		border-radius: 0
+		display: inline-block
+		width: auto
+		text-transform: uppercase
+		text-align: center
+		text-decoration: none
+		transition: $transition-slow
+		cursor: pointer
+		padding: 8px 21px
+		color: $color-white
+		font-size: 14px
+		font-weight: 500
+		line-height: 17px
+		background-color: $color-accent
+		border: 1px solid $color-accent
+
+		&:hover,
+		&:focus,
+		&:active
+			color: $color-black
+			background-color: transparent
+
+	ul.products
+		display: flex
+		flex-wrap: wrap
+
+		li.product
+			display: flex
+			flex-direction: column
+			align-items: center
+			text-align: center
+
+			.onsale
+				padding: 5px 10px 4px
+				margin: 0
+				position: absolute
+				top: 10px
+				left: 10px
+				right: auto
+				color: #fbf3f2
+				font-size: 11px
+				font-weight: 400
+				line-height: 16px
+				text-transform: uppercase
+				background-color: #ff3d2a
+				border-radius: 2px
+				min-width: auto
+				min-height: auto
+
+			.woocommerce-loop-product__link
+				width: 100%
+				display: flex
+				flex-direction: column
+				flex-grow: 1
+
+			.product-thumb-wrap
+				max-height: 270px
+				width: 270px
+				background-color: $color-light
+				display: flex
+				justify-content: center
+				align-items: center
+				padding: 30px
+				flex-grow: 1
+				margin-bottom: 20px
+
+				img
+					margin: 0
+					max-width: 100%
+					max-height: 100%
+					height: auto
+
+			.woocommerce-loop-product__title
+				padding: 0
+				margin-bottom: 10px
+				color: $color-black
+				font-size: 16px
+				line-height: 19px
+				font-weight: 400
+				text-transform: none
+
+			.price
+				color: #404040
+				font-size: 16px
+				font-weight: 500
+				margin-bottom: 0
+
+				del
+					margin-right: 5px
+					color: $color-red
+					opacity: 1
+
+				ins
+					font-weight: 500
+					text-decoration: none
+
+	.widget_price_filter
+
+		.ui-slider
+
+			.ui-slider-range
+				height: 10px
+				background-color: $color-accent
+
+			.ui-slider-handle
+				width: 20px
+				height: 20px
+				top: -5px
+				background-color: $color-white
+				border: 1px solid #767575
+				box-sizing: border-box
+
+		.price_slider_wrapper
+
+			.ui-widget-content
+				height: 10px
+				background-color: #aeaeae
+
+		.price_slider_amount
+			text-align: left

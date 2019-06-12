@@ -4,7 +4,7 @@
 			<div class="footer-raw">
 
 				<div class="footer-col">
-					sdfsdf
+					<img src="<?php echo THEME_IMG; ?>logo-footer.png" alt="">
 				</div>
 
 				<div class="footer-col">
@@ -48,6 +48,8 @@
 		</div>
 	</div>
 </footer>
+
+<div class="scf-overlay"></div>
 
 <?php wp_footer(); ?>
 </body>

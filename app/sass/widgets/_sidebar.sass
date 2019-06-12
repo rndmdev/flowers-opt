@@ -1,12 +1,69 @@
 .sidebar
 
-.widget
+	.widget
+		margin-bottom: 20px
+
+		.yith-wcan-list
+			margin: 0
+			padding: 0
+			list-style-type: none
+
+			li
+				position: relative
+
+				a,
+				span
+					display: inline-block
+					padding-left: 23px
+					color: #767575
+					font-size: 12px
+					text-decoration: none
+
+					&::before
+						position: absolute
+						content: ''
+						width: 15px
+						height: 15px
+						left: 0
+						top: 4px
+						border: 1px solid $color-black
+						box-sizing: border-box
+						line-height: 14px
+						font-size: 12px
+						text-align: center
+						color: $color-white
+
+				span
+					opacity: .7
+
+				&.chosen
+
+					a,
+					span
+
+						&::before
+							content: '\2713'
+							background-color: $color-accent
 
 	.widgettitle
-		display: block
-		color: #000
-		font-family: $font-accent
-		font-size: 18px
-		font-weight: 700
-		line-height: 20px
-		margin-bottom: 30px
+		display: inline-block
+		color: $color-black
+		font-size: 14px
+		line-height: 17px
+		margin-bottom: 10px
+		position: relative
+		border-bottom: 1px $color-black solid
+
+	.widget_text
+
+		.widgettitle
+			font-size: 18px
+			line-height: 21px
+			text-transform: uppercase
+			margin-bottom: 0
+			border: 0
+
+	.widget_price_filter
+
+		.widgettitle
+			margin-bottom: 20px
