@@ -2,6 +2,7 @@
 
 	.section-wrap
 		display: flex
+		flex-wrap: wrap
 
 	.feedback-descr,
 	.feedback-img
@@ -9,6 +10,12 @@
 		margin-right: 30px
 		background-size: cover
 		min-height: 315px
+		+r(991)
+			width: calc(50% - 15px)
+			margin-bottom: 30px
+		+r(575)
+			width: 100%
+			margin-right: 0
 
 	.feedback-descr
 		padding: 60px
@@ -21,6 +28,9 @@
 		text-align: center
 		position: relative
 		+jpg(f1)
+		+r(1199)
+			font-size: 16px
+			line-height: 24px
 
 		&::before
 			position: absolute
@@ -30,12 +40,21 @@
 			right: 30px
 			bottom: 30px
 			border: 10px solid #fff
+			+r(1199)
+				top: 20px
+				left: 20px
+				right: 20px
+				bottom: 20px
 
 		*
 			position: relative
 
 	.feedback-img
 		+jpg(f2)
+		+r(991)
+			margin-right: 0
+		+r(575)
+			display: none
 
 	.feedback-text
 		width: 50%
@@ -44,6 +63,8 @@
 		justify-content: center
 		align-items: center
 		text-align: center
+		+r(991)
+			width: 100%
 
 	.feedback-title
 		font-size: 28px

@@ -2,6 +2,7 @@
 
 	.section-wrap
 		display: flex
+		flex-wrap: wrap
 
 	.section-btn,
 	.section-img
@@ -9,6 +10,12 @@
 		margin-right: 30px
 		background-size: cover
 		min-height: 315px
+		+r(991)
+			width: calc(50% - 15px)
+			margin-bottom: 30px
+		+r(575)
+			width: 100%
+			margin-right: 0
 
 	.section-btn
 		padding: 60px
@@ -28,6 +35,11 @@
 			right: 30px
 			bottom: 30px
 			border: 10px solid #fff
+			+r(1199)
+				top: 20px
+				left: 20px
+				right: 20px
+				bottom: 20px
 
 		*
 			position: relative
@@ -36,12 +48,21 @@
 		font-size: 20px
 		line-height: 30px
 		margin-bottom: 20px
+		+r(1199)
+			font-size: 16px
+			line-height: 24px
 
 	.section-img
 		+jpg(a2)
+		+r(991)
+			margin-right: 0
+		+r(575)
+			display: none
 
 	.section-text
 		width: 50%
+		+r(991)
+			width: 100%
 
 		h2
 			margin: 0 0 14px

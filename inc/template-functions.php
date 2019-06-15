@@ -43,35 +43,42 @@ if ( ! wp_next_scheduled( 'scf_do_instagram' ) ) {
 // добавляем крон хук
 add_action( 'scf_do_instagram', 'scf_insta_photos' );
 
-// Remove woocommerce breadcrumbs
-// * Hook: woocommerce_before_main_content.
-// * @hooked woocommerce_breadcrumb - 20
-remove_action('woocommerce_before_main_content','woocommerce_breadcrumb', 20);
+//Вывод радио-баттонов выбора вариаций (нуждается в рефакторинге)
+function scf_get_variation_radio() {
 
-add_action('init', function(){
-	remove_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10);
-	add_action( 'woocommerce_before_shop_loop_item_title', 'woocommerce_template_loop_product_thumbnail', 10);
-});
+	global $woocommerce, $product, $post;
 
-if ( ! function_exists( 'woocommerce_template_loop_product_thumbnail' ) ) {
-	function woocommerce_template_loop_product_thumbnail() {
-		echo woocommerce_get_product_thumbnail();
+	//Получим вариации
+	$variations = $product->get_variation_attributes();
+	$available_variations = $product->get_available_variations();
+	$count                = 0;
+
+	r($product);
+	r($variations);
+	r($available_variations);
+
+	foreach ($variations as $variation => $options) {
+		echo '
+			<label><input type="radio" name="variation" data-price="' . '' . '" value="' . '' . '" >' . wc_attribute_label( $variation ) . '</label>';
 	}
-}
 
-if ( ! function_exists( 'woocommerce_get_product_thumbnail' ) ) {
-	function woocommerce_get_product_thumbnail( $size = 'shop_catalog' ) {
-		global $post, $woocommerce;
-		$output = '<div class="product-thumb-wrap">';
+	//Выводим их
+	foreach ( $available_variations as $key => $value ) {
 
-		if ( has_post_thumbnail() ) {
-			$output .= get_the_post_thumbnail( $post->ID, $size );
-		} else {
-			$output .= wc_placeholder_img( $size );
-			// Or alternatively setting yours width and height shop_catalog dimensions.
-			// $output .= '<img src="' . woocommerce_placeholder_img_src() . '" alt="Placeholder" width="300px" height="300px" />';
+		$val   = $value['attributes']['attribute_fasovka'];
+		$price = esc_html( wc_price( $value['display_price'] ) );
+
+
+		//выводим все, что нужно
+		echo '
+			<input type="radio" id="fasovka-' . $key . '" name="variation" data-price="' . $price . '" value="' . $val . '" >
+			<label for="fasovka-' . $key . '">' . $val . '</label>';
+
+		if ( $count === 0 ) {
+			echo '<span>или</span>';
 		}
-		$output .= '</div>';
-		return $output;
+
+		$count ++;
 	}
+
 }

@@ -17,6 +17,17 @@ function popularSlider() {
             nextEl: '.popular-slider-next',
             prevEl: '.popular-slider-prev',
         },
+        breakpoints: {
+            991: {
+                slidesPerView: 3,
+            },
+            767: {
+                slidesPerView: 2,
+            },
+            450: {
+                slidesPerView: 1,
+            }
+        }
     });
 }
 
@@ -48,6 +59,20 @@ function instagramSlider() {
         autoplay: {
             delay: 2000,
         },
+        breakpoints: {
+            991: {
+                slidesPerView: 5,
+                slidesOffsetBefore: -95
+            },
+            767: {
+                slidesPerView: 4,
+                slidesOffsetBefore: -92
+            },
+            575: {
+                slidesPerView: 3,
+                slidesOffsetBefore: -92
+            }
+        }
     });
 }
 
@@ -57,6 +82,52 @@ function toggleMenu() {
     tbtn.click(function () {
         jQuery(this).toggleClass("on");
         tmenu.toggleClass("on");
+    });
+}
+
+function productSlider() {
+    var galleryThumbs = new Swiper('.product-card-slider-thumbs', {
+        spaceBetween: 30,
+        slidesPerView: 3,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+        navigation: {
+            nextEl: '.next-gallery-thumbs-slider',
+            prevEl: '.prev-gallery-thumbs-slider'
+        },
+    });
+    var galleryTop = new Swiper('.product-card-slider-main', {
+        spaceBetween: 20,
+        thumbs: {
+            swiper: galleryThumbs
+        }
+    });
+}
+
+function productSliderGallery() {
+    jQuery('.product-card-slider-main').magnificPopup({
+        delegate: 'a',
+        type: 'image',
+        tLoading: 'Loading image #%curr%...',
+        mainClass: 'mfp-img-mobile',
+        gallery: {
+            enabled: true,
+            navigateByImgClick: true,
+            preload: [0, 1] // Will preload 0 - before current, and 1 after the current image
+        },
+        image: {
+            tError: '<a href="%url%">The image #%curr%</a> could not be loaded.',
+            titleSrc: function (item) {
+                return item.el.attr('title');
+            }
+        },
+        zoom: {
+            enabled: true,
+            duration: 300, // don't foget to change the duration also in CSS
+            opener: function (element) {
+                return element.find('img');
+            }
+        }
     });
 }
 
@@ -84,67 +155,6 @@ function modalForm() {
     });
 }
 
-function productSlider() {
-    var galleryThumbs = new Swiper('.product-card-slider-thumbs', {
-        spaceBetween: 16,
-        autoplay: {
-            delay: 4000,
-            disableOnInteraction: true,
-        },
-        // loop: true,
-        slidesPerView: 3,
-        direction: 'vertical',
-        freeMode: true,
-        watchSlidesVisibility: true,
-        watchSlidesProgress: true,
-        navigation: {
-            nextEl: '.next-gallery-thumbs-slider',
-            prevEl: '.prev-gallery-thumbs-slider'
-        },
-        breakpoints: {
-            700: {
-                slidesPerView: 3
-            },
-            480: {
-                direction: 'horizontal',
-                slidesPerView: 3
-            }
-        }
-    });
-    var galleryTop = new Swiper('.product-card-slider-top', {
-        spaceBetween: 20,
-        autoplay: {
-            delay: 4000,
-            disableOnInteraction: true,
-        },
-        // loop: true,
-        navigation: {
-            nextEl: '.next-gallery-top-slider',
-            prevEl: '.prev-gallery-top-slider'
-        },
-        thumbs: {
-            swiper: galleryThumbs
-        }
-    });
-
-    jQuery( ".single_variation_wrap" ).on( "show_variation", function ( event, variation ) {
-        var slideImgId = variation.image_id;
-        galleryTop.slideTo( jQuery('.product-card-slider-top .swiper-slide[data-id="'+slideImgId+'"]').index(),300,false);
-    } );
-}
-
-
-
-function smoothscroll() {
-    jQuery(document).on('click', '.go_to', function (event) {
-        event.preventDefault();
-
-        jQuery('html, body').animate({
-            scrollTop: jQuery(jQuery.attr(this, 'href')).offset().top
-        }, 500);
-    });
-}
-
 
 function initEvents() {
 
@@ -155,6 +165,8 @@ function initEvents() {
         reviewsSlider();
         instagramSlider();
         toggleMenu();
+        productSlider();
+        productSliderGallery();
     });
 
     jQuery(document).mouseup(function (e) {

@@ -16,40 +16,33 @@ ul.page-numbers
 	.prev,
 	.next
 		position: relative
+		color: transparent
 
 		&::before,
 		&::after
 			position: absolute
 			content: ''
-			background-color: #94adba
-			width: 10px
+			width: 11px
 			height: 1px
+			top: 50%
+			left: 50%
+			background-color: $color-black
 
 	.prev
-		padding: 0 45px 0 17px
 
 		&::before
-			transform: rotate(-45deg)
-			top: 6px
-			left: -1px
+			transform: translate3d(-5px, -4px, 0) rotate(-45deg)
 
 		&::after
-			transform: rotate(45deg)
-			bottom: 5px
-			left: -1px
+			transform: translate3d(-5px, 4px, 0) rotate(45deg)
 
 	.next
-		padding: 0 17px 0 45px
 
 		&::before
-			transform: rotate(45deg)
-			top: 6px
-			right: -1px
+			transform: translate3d(-5px, -4px, 0) rotate(45deg)
 
 		&::after
-			transform: rotate(-45deg)
-			bottom: 5px
-			right: -1px
+			transform: translate3d(-5px, 4px, 0) rotate(-45deg)
 
 	.current
 		color: #143848

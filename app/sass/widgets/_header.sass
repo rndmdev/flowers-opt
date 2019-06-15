@@ -40,6 +40,10 @@
 		flex-grow: 1
 		+r(991)
 			align-items: flex-start
+		+r(575)
+			flex-direction: column
+			justify-content: flex-start
+			align-items: center
 
 		.logo
 			display: none
@@ -49,6 +53,10 @@
 				display: flex
 				align-items: center
 				flex-shrink: 0
+			+r(575)
+				height: 120px
+				max-width: 120px
+				margin-bottom: 20px
 
 	.header-info
 		display: flex
@@ -59,11 +67,19 @@
 		+r(991)
 			height: 244px
 			flex-shrink: 0
+		+r(575)
+			height: auto
+			flex-grow: unset
+			align-items: center
+			margin-bottom: 19px
 
 	.header-title,
 	.header-phone
 		color: $color-black
 		font-size: 25px
+		+r(575)
+			font-size: 19px
+			margin-bottom: 5px
 
 	.header-title
 		font-weight: 500
@@ -76,11 +92,16 @@
 	.header-messengers
 		font-size: 20px
 		font-weight: 500
+		+r(575)
+			font-size: 17px
 
 		a
 			color: $color-black
 			text-decoration: none
 			padding-left: 5px
+
+		i
+			font-size: 20px
 
 	.header-menu
 		+r(991)

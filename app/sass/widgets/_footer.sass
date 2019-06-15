@@ -2,22 +2,47 @@
 	padding: 55px 0 60px
 	background-color: #404040
 
-	.footer-top
+	.footer-raw
+		display: flex
+		flex-wrap: wrap
+		margin-left: -15px
+		margin-right: -15px
+
+	.footer-col
+		width: 25%
+		padding-left: 15px
+		padding-right: 15px
 		margin-bottom: 30px
+		+r(767)
+			width: 33.3333%
+		+r(575)
+			width: 50%
+
+	.footer-top
+
+		.footer-col
+			+r(374)
+				width: 100%
+
+			&:first-child
+				+r(767)
+					width: 100%
+					text-align: center
 
 	.footer-bottom
 
 		.footer-raw
 			align-items: center
+			+r(575)
+				align-items: flex-start
 
-	.footer-raw
-		display: flex
+		.footer-col
 
-	.footer-col
-		width: calc(25% - 22.5px)
+			&:first-child
+				+r(575)
+					width: 100%
+					order: 3
 
-		&:not(:last-child)
-			margin-right: 30px
 
 	.footer-copy
 		color: #fff
