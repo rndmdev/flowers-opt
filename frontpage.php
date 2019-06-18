@@ -11,7 +11,7 @@ Template Name: Главная
 		<div class="hero-wrap">
 			<div class="hero-title"><?php the_field('hero_title'); ?></div>
 			<div class="hero-descr"><?php the_field('hero_subtitle'); ?></div>
-			<a href="<?php echo  get_field('hero_link')['url']; ?>" class="hero-btn btn btn-white"><?php echo get_field('hero_link')['title']; ?></a>
+			<a href="<?php echo get_field('hero_link')['url']; ?>" class="hero-btn btn btn-white"><?php echo get_field('hero_link')['title']; ?></a>
 		</div>
 	</div>
 </div>
@@ -41,14 +41,13 @@ Template Name: Главная
 	<div class="section-wrap">
 		<div class="container">
 			<div class="proposal-wrap">
-				<div class="proposal-img"><img src="<?php echo THEME_IMG; ?>proposal.png" alt=""></div>
+				<div class="proposal-img"><img src="<?php the_field('spec_image'); ?>" alt=""></div>
 				<div class="proposal-text">
-					<div class="proposal-title">Поспешите! Горячее предложение!</div>
-					<div class="proposal-discount">Скидки <span>до 20 %</span></div>
-					<div class="proposal-descr">Lorem ipsum dolor sit amet, consectetur adipisicing elit,<br> sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-					</div>
-					<div class="proposal-timer" id="countdowntimer_single"><span id="future_date_single" data-future-date="2019/07/19 00:00:00"></span></div>
-					<div class="proposal-btn"><a href="#" class="btn btn-grey">Подробнее</a></div>
+					<div class="proposal-title"><?php the_field('spec_title'); ?></div>
+					<div class="proposal-discount"><?php the_field('spec_subtitle'); ?></div>
+					<div class="proposal-descr"><?php the_field('spec_descr'); ?></div>
+					<div class="proposal-timer" id="countdowntimer_single"><span id="future_date_single" data-future-date="<?php the_field('spec_date'); ?>"></span></div>
+					<div class="proposal-btn"><a href="<?php echo get_field('spec_link')['url']; ?>" class="btn btn-grey"><?php echo get_field('spec_link')['title']; ?></a></div>
 				</div>
 			</div>
 		</div>
