@@ -2,15 +2,16 @@
 /*
 Template Name: Главная
 */
+
 ?>
 <?php get_header(); ?>
 
-<div class="section hero" style="background-image:url('<?php echo THEME_IMG; ?>hero.jpg');">
+<div class="section hero" style="background-image:url('<?php the_field("hero_image"); ?>');">
 	<div class="container">
 		<div class="hero-wrap">
-			<div class="hero-title">СТИЛЬНЫЕ БУКЕТЫ</div>
-			<div class="hero-descr">С БЕСПЛАТНОЙ ДОСТАВКОЙ<br>В МОСКВЕ</div>
-			<a href="#" class="hero-btn btn btn-white">ВЫБРАТЬ БУКЕТ</a>
+			<div class="hero-title"><?php the_field('hero_title'); ?></div>
+			<div class="hero-descr"><?php the_field('hero_subtitle'); ?></div>
+			<a href="<?php echo  get_field('hero_link')['url']; ?>" class="hero-btn btn btn-white"><?php echo get_field('hero_link')['title']; ?></a>
 		</div>
 	</div>
 </div>
@@ -26,23 +27,8 @@ Template Name: Главная
 		</div>
 
 		<div class="popular-slider swiper-container">
-			<div class="swiper-wrapper">
-
-				<?php for ( $x = 0; $x < 2; $x ++ ) : ?>
-					<?php for ( $i = 1; $i < 9; $i ++ ) : ?>
-						<div class="swiper-slide">
-							<div class="product-item">
-								<div class="product-item-img">
-									<span class="label">Новинка</span>
-									<img src="<?php echo THEME_IMG . 'b' . $i . '.png'; ?>" alt="">
-								</div>
-								<div class="product-item-title">Pearly Everlasting</div>
-								<div class="product-item-price">от <span>1000 ₽</span> <span>1200 ₽</span></div>
-								<a class="product-item-btn btn btn-accent">В корзину</a>
-							</div>
-						</div>
-					<?php endfor; ?>
-				<?php endfor; ?>
+			<div class="swiper-wrapper woocommerce">
+                <?php scf_get_popular_products(); ?>
 			</div>
 		</div>
 	</div>
@@ -104,7 +90,7 @@ Template Name: Главная
 					<div class="reviews-slider swiper-container">
 						<div class="swiper-wrapper">
 
-							<?php for ( $i = 1; $i < 4; $i ++ ) : ?>
+                            <?php for ($i = 1; $i < 4; $i++) : ?>
 								<div class="swiper-slide">
 									<div class="reviews-item">
 										<div class="reviews-text">«Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
@@ -113,7 +99,7 @@ Template Name: Главная
 										<div class="reviews-name">Виктория, г. Москва</div>
 									</div>
 								</div>
-							<?php endfor; ?>
+                            <?php endfor; ?>
 
 						</div>
 						<div class="reviews-pagination"></div>
@@ -135,12 +121,12 @@ Template Name: Главная
 	<div class="instagram-title"><span>#ПервыйЦветочныйОптовый</span></div>
 	<div class="instagram-gallery swiper-container">
 		<div class="swiper-wrapper">
-			<?php $instagram_gallery = get_field( 'instagram_raw', 'options' ); ?>
-			<?php foreach ( $instagram_gallery as $instagram_item ) : ?>
+            <?php $instagram_gallery = get_field('instagram_raw', 'options'); ?>
+            <?php foreach ($instagram_gallery as $instagram_item) : ?>
 				<div class="swiper-slide">
-					<a href="<?php echo get_field( 'instagram_link', 'options' ); ?>" class="instagram-gallery-item" target="_blank"><img src="<?php echo $instagram_item; ?>"></a>
+					<a href="<?php echo get_field('instagram_link', 'options'); ?>" class="instagram-gallery-item" target="_blank"><img src="<?php echo $instagram_item; ?>"></a>
 				</div>
-			<?php endforeach; ?>
+            <?php endforeach; ?>
 		</div>
 	</div>
 </div>
