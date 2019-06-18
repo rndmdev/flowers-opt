@@ -76,43 +76,44 @@ Template Name: Главная
 	</div>
 </div>
 
-<div class="section reviews">
-	<div class="container">
-		<div class="section-title"><span>ОТЗЫВЫ</span></div>
-	</div>
-	<div class="section-wrap">
+<?php $reviews = get_field('reviews');
+if ($reviews): ?>
+	<div class="section reviews">
 		<div class="container">
-			<div class="reviews-wrap">
+			<div class="section-title"><span>ОТЗЫВЫ</span></div>
+		</div>
+		<div class="section-wrap">
+			<div class="container">
+				<div class="reviews-wrap">
 
-				<div class="left">
-					<div class="reviews-icon"><img src="<?php echo THEME_IMG; ?>ricon.png" alt=""></div>
-					<div class="reviews-slider swiper-container">
-						<div class="swiper-wrapper">
+					<div class="left">
+						<div class="reviews-icon"><img src="<?php echo THEME_IMG; ?>ricon.png" alt=""></div>
+						<div class="reviews-slider swiper-container">
+							<div class="swiper-wrapper">
 
-                            <?php for ($i = 1; $i < 4; $i++) : ?>
-								<div class="swiper-slide">
-									<div class="reviews-item">
-										<div class="reviews-text">«Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore
-											magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat».
+                                <?php foreach($reviews as $review): ?>
+									<div class="swiper-slide">
+										<div class="reviews-item">
+											<div class="reviews-text"><?php echo $review['text']; ?></div>
+											<div class="reviews-name"><?php echo $review['author']; ?></div>
 										</div>
-										<div class="reviews-name">Виктория, г. Москва</div>
 									</div>
-								</div>
-                            <?php endfor; ?>
+                                <?php endforeach; ?>
 
+							</div>
+							<div class="reviews-pagination"></div>
 						</div>
-						<div class="reviews-pagination"></div>
 					</div>
-				</div>
 
-				<div class="right">
-					<div class="reviews-img"><img src="<?php echo THEME_IMG; ?>fdbk.png" alt=""></div>
-				</div>
+					<div class="right">
+						<div class="reviews-img"><img src="<?php echo THEME_IMG; ?>fdbk.png" alt=""></div>
+					</div>
 
+				</div>
 			</div>
 		</div>
 	</div>
-</div>
+<?php endif; ?>
 
 <?php get_template_part('template-parts/feedback'); ?>
 
